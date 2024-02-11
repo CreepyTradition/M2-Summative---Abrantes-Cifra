@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShellController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ShellController : MonoBehaviour
     private bool canFire = false;
     public AudioSource fireSoundSource;
     public AudioClip fireSoundClip;
+    public TextMeshProUGUI shellText;
 
 
     void OnTriggerEnter(Collider getShell)
@@ -24,6 +26,7 @@ public class ShellController : MonoBehaviour
                 //Debug.Log("Shell Lock and Loaded!");
 
                 canFire = true;
+
             }
         }
     }

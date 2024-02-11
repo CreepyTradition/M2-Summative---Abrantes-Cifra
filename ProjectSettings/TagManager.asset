@@ -10,6 +10,7 @@ TagManager:
   - ItemBox
   - Wall
   - Boost
+  - TireWall
   layers:
   - Default
   - TransparentFX

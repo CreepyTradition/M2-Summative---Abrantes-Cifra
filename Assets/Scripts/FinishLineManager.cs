@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FinishLineManager : MonoBehaviour
 {
     public int totalLaps = 3;
-    private int currentLap = -1;
+    private int currentLap = 0;
+    public TextMeshProUGUI lapCounterText;
 
     void OnTriggerEnter(Collider lapDone)
     {
@@ -14,9 +17,15 @@ public class FinishLineManager : MonoBehaviour
             currentLap++;
             Debug.Log("Current Lap: " + currentLap + "/3");
 
-            if (currentLap >= totalLaps)
+            if (lapCounterText != null)
+            {
+                lapCounterText.text = "Lap: " + currentLap + "/" + totalLaps;
+            }
+
+            if (currentLap >= 4)
             {
                 Debug.Log("You Win");
+                SceneManager.LoadSceneAsync("EndScreen");
             }
         }   
     }
