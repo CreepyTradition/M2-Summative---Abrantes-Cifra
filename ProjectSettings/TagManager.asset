@@ -6,6 +6,10 @@ TagManager:
   tags:
   - MenuMusic
   - RaceMusic
+  - Target
+  - ItemBox
+  - Wall
+  - Boost
   layers:
   - Default
   - TransparentFX

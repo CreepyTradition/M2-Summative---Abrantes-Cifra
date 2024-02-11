@@ -13,7 +13,7 @@ public class CarSelection : MonoBehaviour
     {
         index = PlayerPrefs.GetInt("carIndex");
         UpdateCarDisplay();
-    }
+    }       
 
     void Update()
     {
@@ -52,4 +52,5 @@ public class CarSelection : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MainPlayLoop");
     }
+    
 }
