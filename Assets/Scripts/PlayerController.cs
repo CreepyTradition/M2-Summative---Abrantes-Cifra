@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float boostForce = 12000f;
     private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
+    public AudioSource nosSoundSource;
+    public AudioClip nosSoundClip;
 
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
         if(boostHit.gameObject.tag == "Boost")
         {
             BoostCar();
+            nosFireSound();
         }
     }
 
@@ -93,6 +96,15 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("BOOST!");
             // Apply a force to the car in its forward direction
             carRigidbody.AddForce(transform.forward * boostForce, ForceMode.Impulse);
+        }
+    }
+
+    void nosFireSound()
+    {
+        if (nosSoundSource != null && nosSoundClip != null)
+        {
+            nosSoundSource.clip = nosSoundClip;
+            nosSoundSource.Play();
         }
     }
 }

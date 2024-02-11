@@ -9,6 +9,9 @@ public class ShellController : MonoBehaviour
     public int maxShells = 1;
     private int currentShells = 0;
     private bool canFire = false;
+    public AudioSource fireSoundSource;
+    public AudioClip fireSoundClip;
+
 
     void OnTriggerEnter(Collider getShell)
     {
@@ -30,6 +33,7 @@ public class ShellController : MonoBehaviour
         if (canFire && Input.GetKeyDown(KeyCode.Space))
         {
             FireShell();
+            playFireSound();
         }
     }
 
@@ -55,5 +59,14 @@ public class ShellController : MonoBehaviour
         //Debug.Log("PEW PEW! Shells: " + currentShells);
 
         canFire = (currentShells > 0);
+    }
+
+    void playFireSound()
+    {
+        if (fireSoundSource != null && fireSoundClip != null)
+        {
+            fireSoundSource.clip = fireSoundClip;
+            fireSoundSource.Play();
+        }
     }
 }
